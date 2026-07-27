@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3001,
     proxy: {
       '/api': {
-        target: 'https://jibam-backend-git-main-jibrinb271-gmailcoms-projects.vercel.app',
+        target: 'https://jibam-backend.vercel.app',
         changeOrigin: true,
         secure: true,
       },

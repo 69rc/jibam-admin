@@ -65,7 +65,12 @@ export default function ProductFormPage() {
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       if (value !== undefined && value !== null && value !== '') {
-        formData.append(key, value);
+        // Convert boolean values to strings for FormData
+        if (typeof value === 'boolean') {
+          formData.append(key, value.toString());
+        } else {
+          formData.append(key, value);
+        }
       }
     });
     const primaryFile = document.getElementById('product-image')?.files[0];
