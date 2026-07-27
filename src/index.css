@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Jibam Pharmacy Brand Fonts ─────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-slate-50 text-navy-900;
+  }
+  :root {
+    /* Jibam Navy */
+    --navy: #0D1B5E;
+    --navy-light: #1A2E8A;
+    --navy-dark: #080F3A;
+    --navy-surface: #E8ECF8;
+    /* Jibam Cyan */
+    --cyan: #00AEEF;
+    --cyan-light: #33C0F3;
+    --cyan-dark: #0090CC;
+    --cyan-surface: #E0F5FD;
+  }
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────────────────── */
+  .btn-primary {
+    @apply text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--navy);
+  }
+  .btn-primary:hover { background-color: var(--navy-light); }
+  .btn-primary:focus { --tw-ring-color: var(--navy); }
+
+  .btn-accent {
+    @apply text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-200
+           focus:outline-none disabled:opacity-50;
+    background-color: var(--cyan);
+  }
+  .btn-accent:hover { background-color: var(--cyan-dark); }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-slate-50 font-medium px-4 py-2.5 rounded-xl
+           border transition-all duration-200;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-xl
+           transition-colors duration-200;
+  }
+
+  /* ── Cards ───────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border p-6;
+    border-color: #EDF0F8;
+  }
+
+  /* ── Inputs ──────────────────────────────────────────── */
+  .input {
+    @apply w-full border rounded-xl px-3 py-2.5 text-sm transition-colors
+           focus:outline-none;
+    border-color: #DDE2F0;
+    color: var(--navy);
+  }
+  .input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(0,174,239,0.12);
+  }
+  .label {
+    @apply block text-sm font-semibold mb-1;
+    color: var(--navy);
+  }
+
+  /* ── Status Badges ───────────────────────────────────── */
+  .badge-success  { @apply bg-green-100  text-green-800  text-xs font-semibold px-2.5 py-0.5 rounded-full; }
+  .badge-warning  { @apply bg-amber-100  text-amber-800  text-xs font-semibold px-2.5 py-0.5 rounded-full; }
+  .badge-danger   { @apply bg-red-100    text-red-700    text-xs font-semibold px-2.5 py-0.5 rounded-full; }
+  .badge-info     { @apply bg-cyan-100   text-cyan-800   text-xs font-semibold px-2.5 py-0.5 rounded-full; }
+  .badge-gray     { @apply bg-slate-100  text-slate-600  text-xs font-semibold px-2.5 py-0.5 rounded-full; }
+  .badge-navy     { @apply text-white    text-xs font-semibold px-2.5 py-0.5 rounded-full; background-color: var(--navy); }
+  .badge-cyan     { @apply text-white    text-xs font-semibold px-2.5 py-0.5 rounded-full; background-color: var(--cyan); }
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar            { width: 5px; height: 5px; }
+::-webkit-scrollbar-track      { background: #F4F6FB; }
+::-webkit-scrollbar-thumb      { background: #C8D0E8; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover{ background: #A3AED0; }
