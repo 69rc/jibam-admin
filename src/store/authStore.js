@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist } from 'zustand/middleware/persist';
 
 const useAuthStore = create(
   persist(
@@ -10,6 +10,7 @@ const useAuthStore = create(
       isAuthenticated: false,
 
       setAuth: ({ user, accessToken, refreshToken }) => {
+        // Sync to localStorage for axios interceptors
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
         set({ user, accessToken, refreshToken, isAuthenticated: true });
